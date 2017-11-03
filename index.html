@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello Books</title>
+    <title>Student Manager</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/history.css">
@@ -15,114 +15,154 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Student Manager</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-            aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="library.html">Library</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="borrow.html">Borrow</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="history.html">History</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
     </nav>
 
     <div class="container">
-        <br>
-        <div class="row">
-            <div class="text-center">
-                <h4>Borrowed books</h4>
-            </div>
 
-            <br>
-            <br>
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Book Title</th>
-                        <th>Borrowed Date</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Jump Start your Brain</th>
-                        <th>26th Aug 2017</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Eloquent Js</th>
-                        <th>22th Aug 2017</th>
-                    </tr>
-                    <tr>
-                        <th>Learn Python the hard way</th>
-                        <th>20th Aug 2017</th>
-                    </tr>
-                    <tr>
-                        <th>Kotlin for Android Developers</th>
-                        <th>20th Aug 2017</th>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="text-center" style="margin: 40px">
+            <h4>List of Students</h4>
         </div>
 
-        <br>
-        <br>
+        <div class="text-right" style="margin: 20px">
+            <button class="btn btn-md btn-success">Add a Student</button>
+        </div>
 
-        <div class="row">
-            <div class="text-center">
-                <h4>Returned books</h4>
+        <table class="table table-hover table-bordered table-responsive">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>Name</th>
+                    <th>Level</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <!-- <tfoot>
+                    <tr>
+                        <th>End</th>
+                    </tr>
+                </tfoot> -->
+            <tbody>
+                <tr>
+                    <th>
+                        <div class="text-center">
+                            <img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                alt="" style="height:50px;" />
+                        </div>
+                    </th>
+                    <th>Valentino Hava</th>
+                    <th>300l</th>
+                    <th>Electrical and Electronics Engineering</th>
+                    <th>
+                        <button class="btn btn-sm btn-info">Update</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="text-center">
+                            <img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                alt="" style="height:50px;" />
+                        </div>
+                    </th>
+                    <th>Rodrigo Azipicuelta</th>
+                    <th>200l</th>
+                    <th>Petroleum Engineering</th>
+                    <th>
+                        <button class="btn btn-sm btn-info">Update</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="text-center">
+                            <img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                alt="" style="height:50px;" />
+                        </div>
+                    </th>
+                    <th>Rodrigo Azipicuelta</th>
+                    <th>200l</th>
+                    <th>Petroleum Engineering</th>
+                    <th>
+                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">Update</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                        </button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                            alt="" style="height:100px;" />
+                    </div>
+                    <form action="" style="margin:16px">
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label class="col-form-label">
+                                    <b> Name </b>
+                                </label>
+                            </div>
+
+                            <div class="col-8">
+                                <input class="form-control" type="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label class="col-form-label">
+                                    <b> Admin No </b>
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label class="col-form-label">
+                                    <b> Level </b>
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Update</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Delete</button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
 
-            <br>
-            <br>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Book Title</th>
-                        <th>Returned Date</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Jump Start your Brain</th>
-                        <th>26th Aug 2017</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Eloquent Js</th>
-                        <th>22th Aug 2017</th>
-                    </tr>
-                    <tr>
-                        <th>Learn Python the hard way</th>
-                        <th>20th Aug 2017</th>
-                    </tr>
-                    <tr>
-                        <th>Kotlin for Android Developers</th>
-                        <th>20th Aug 2017</th>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
