@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import StudentList from './StudentList'
-import NewStudent from './NewStudent'
-import EditStudent from './EditStudent'
-import axios from 'axios'
+import StudentList from "./StudentList";
+import NewStudent from "./NewStudent";
+import EditStudent from "./EditStudent";
+import axios from "axios";
+import config from "../../config";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -29,20 +30,21 @@ export default class Dashboard extends Component {
     };
   }
 
-
-  componentDidMount(){
-    axios.get('http://127.0.0.1:8080/api/students')
-          .then(res => console.log(res.data))
+  componentDidMount() {
+    axios.get(`${config.serverUrl}/api/students/`).then(res => console.log(res.data));
   }
-
 
   render() {
     return (
       <Switch>
         <Route exact path="/new" component={NewStudent} />
         <Route exact path="/edit/:student" component={EditStudent} />
-        <Route exact path="/" render={() => <StudentList data={this.state.data}/>} />
-        <Route render={() => <StudentList data={this.state.data}/>} />
+        <Route
+          exact
+          path="/"
+          render={() => <StudentList data={this.state.data} />}
+        />
+        <Route render={() => <StudentList data={this.state.data} />} />
       </Switch>
     );
   }
