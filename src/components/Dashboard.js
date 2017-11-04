@@ -10,28 +10,32 @@ export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        {
-          name: "Valentino Hava",
-          level: "300",
-          dept: "Electrical and Electronics Engineering"
-        },
-        {
-          name: "Rodrigo Azipicuelta",
-          level: "200",
-          dept: "Petroleum Engineering"
-        },
-        {
-          name: "Dennis Bobo",
-          level: "300",
-          dept: "Mechanical Engineering"
-        }
-      ]
+      data: [],
+      message: ""
     };
+
+    this.deleteStudent = this.deleteStudent.bind(this);
+    this.getStudentList = this.getStudentList.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`${config.serverUrl}/api/students/`).then(res => console.log(res.data));
+    this.getStudentList();
+  }
+
+  getStudentList() {
+    axios.get(`${config.serverUrl}/api/students/`).then(res => {
+      this.setState({ data: res.data });
+      console.log(this.state.data);
+    });
+  }
+
+  deleteStudent(id) {
+    axios
+      .delete(`${config.serverUrl}/api/students/${id}`)
+      .then(res => {
+        this.setState({ message: res.data });
+      })
+      .then(() => this.getStudentList());
   }
 
   render() {
@@ -42,9 +46,15 @@ export default class Dashboard extends Component {
         <Route
           exact
           path="/"
-          render={() => <StudentList data={this.state.data} />}
+          render={() => (
+            <StudentList />
+          )}
         />
-        <Route render={() => <StudentList data={this.state.data} />} />
+        <Route
+          render={() => (
+            <StudentList />
+          )}
+        />
       </Switch>
     );
   }
