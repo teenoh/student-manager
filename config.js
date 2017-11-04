@@ -1,6 +1,6 @@
 const env = process.env;
 
-export default {
+module.exports =  {
   port: env.PORT || 8080,
   host: env.HOST || '0.0.0.0',
   get serverUrl(){
