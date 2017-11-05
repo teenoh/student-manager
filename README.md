@@ -1,14 +1,14 @@
-Student-manager
+*Student-manager*
 
 My implementation of a Student Management System for Andela Learning Community 2.0 Assessment Test.
 
 Build Setup
 
-# install dependencies
-npm install
+```
+npm install #install dependencies
 
-# bundle react file
-npm run dev
+npm run dev # bundle react file
 
-# run server at localhost:8080
-npm start
+npm start # run server at localhost:8080
+
+```
